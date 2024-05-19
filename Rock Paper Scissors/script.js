@@ -133,6 +133,109 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+// *********************** REWORK ***********************
+
+function rocks() {
+  const placeHolder = document.querySelector("#textPlaceHolder");
+  const rockImage = document.createElement("img");
+  rockImage.setAttribute("class", "leftImage")
+  rockImage.setAttribute("src", "images/rock.jpg");
+  leftImage.replaceWith(rockImage);
+  let computerChoice = getComputerChoice();
+  switch (computerChoice) {
+    case "rock":
+      const rockText = document.createElement("p");
+      rockText.setAttribute("id", "textPlaceHolder");
+      rockText.textContent = "The computer chose rock, it's a tie";
+      placeHolder.replaceWith(rockText);
+      break;
+
+    case "paper":
+      const paperText = document.createElement("p");
+      paperText.setAttribute("id", "textPlaceHolder");
+      paperText.textContent = "The computer chose paper, you lose";
+      placeHolder.replaceWith(paperText);
+      break;
+
+    case "scissors":
+      const scissorsText = document.createElement("p");
+      scissorsText.setAttribute("id", "textPlaceHolder");
+      scissorsText.textContent = "The computer chose scissors, you win!";
+      placeHolder.replaceWith(scissorsText);
+      humanScore++;
+      return humanScore;
+  }
+}
+
+function papers() {
+  const placeHolder = document.querySelector("#textPlaceHolder");
+  const paperImage = document.createElement("img");
+  paperImage.setAttribute("class", "leftImage")
+  paperImage.setAttribute("src", "images/paper.jpg");
+  leftImage.replaceWith(paperImage);
+  let computerChoice = getComputerChoice();
+  switch (computerChoice) {
+    case "rock":
+      const rockText = document.createElement("p");
+      rockText.setAttribute("id", "textPlaceHolder");
+      rockText.textContent = "The computer chose rock, you win!";
+      placeHolder.replaceWith(rockText);
+      humanScore++;
+      return humanScore;
+
+    case "paper":
+      const paperText = document.createElement("p");
+      paperText.setAttribute("id", "textPlaceHolder");
+      paperText.textContent = "The computer chose paper, it's a tie";
+      placeHolder.replaceWith(paperText);
+      break;
+
+    case "scissors":
+      const scissorsText = document.createElement("p");
+      scissorsText.setAttribute("id", "textPlaceHolder");
+      scissorsText.textContent = "The computer chose scissors, you lose";
+      placeHolder.replaceWith(scissorsText);
+  }
+}
+
+function scissorss() {
+  const placeHolder = document.querySelector("#textPlaceHolder");
+  const scissorsImage = document.createElement("img");
+  scissorsImage.setAttribute("class", "leftImage")
+  scissorsImage.setAttribute("src", "images/scissors.jpg");
+  leftImage.replaceWith(scissorsImage);
+  let computerChoice = getComputerChoice();
+  switch (computerChoice) {
+    case "rock":
+      const rockText = document.createElement("p");
+      rockText.setAttribute("id", "textPlaceHolder");
+      rockText.textContent = "The computer chose rock, you win!";
+      placeHolder.replaceWith(rockText);
+      humanScore++;
+      return humanScore;
+
+    case "paper":
+      const paperText = document.createElement("p");
+      paperText.setAttribute("id", "textPlaceHolder");
+      paperText.textContent = "The computer chose paper, it's a tie";
+      placeHolder.replaceWith(paperText);
+      break;
+
+    case "scissors":
+      const scissorsText = document.createElement("p");
+      scissorsText.setAttribute("id", "textPlaceHolder");
+      scissorsText.textContent = "The computer chose scissors, you lose";
+      placeHolder.replaceWith(scissorsText);
+  }
+
+}
+
+function updateScore() {
+  const playerScore = document.getElementById("score");
+  playerScore.textContent = `(${humanScore})`;
+}
+
+// *********************** REWORK ***********************
 /* E. Playing a Match
 
 START;
@@ -166,4 +269,37 @@ function playMatch() {
   }
 }
 
-playMatch();
+// playMatch();
+
+//                          *********HTML SECTION*********
+
+//---------- QUERY SELECTORS / ELEMENTS ----------//
+
+const leftImage = document.querySelector(".leftImage");
+
+const rightImage = document.querySelector(".rightImage");
+
+const rock = document.querySelector("#rock");
+
+const paper = document.querySelector("#paper");
+
+const scissors = document.querySelector("#scissors");
+
+//------------------------------------------------//
+
+rock.addEventListener("click", (Event) => {
+  rocks();
+  updateScore();
+});
+
+paper.addEventListener("click", (Event) => {
+  papers();
+  updateScore();
+});
+
+scissors.addEventListener("click", (Event) => {
+  scissorss();
+  updateScore();
+});
+
+//                          *********HTML SECTION*********
