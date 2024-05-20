@@ -9,7 +9,12 @@
   </head>
   <body>
     <header>
-      <h1>Rock Paper Scissors</h1>
+      <h1>
+        <div class="red">Rock</div>
+        <div class="blue">Paper</div>
+        <div class="green">Scissors</div>
+        <div class="yellow">!</div>
+      </h1>
     </header>
     <main>
       <section id="interface">
@@ -18,21 +23,27 @@
             <p class="text">YOU</p>
             <p id="score">(?)</p>
           </div>
-          <div class="leftImage"></div>
+          <div class="leftImage">
+            <img id="rpsImageLeft" src="images/rock.png" />
+          </div>
         </div>
         <div id="rightSide">
           <div class="computerScore">
             <p class="text">COMPUTER</p>
-            <p id="score">(?)</p>
+            <p id="computerScore">(?)</p>
           </div>
-          <div class="rightImage"></div>
+          <div class="rightImage">
+            <img id="rpsImageRight" src="images/paper.png" />
+          </div>
         </div>
       </section>
       <div id="choices">
         <p id="textPlaceHolder">Pick</p>
-        <button id="rock">ROCK</button>
-        <button id="paper">PAPER</button>
-        <button id="scissors">SCISSORS</button>
+        <div class="buttons">
+          <button id="rock"></button>
+          <button id="paper"></button>
+          <button id="scissors"></button>
+        </div>
       </div>
     </main>
   </body>

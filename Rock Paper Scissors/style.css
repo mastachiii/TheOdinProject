@@ -1,13 +1,27 @@
+@font-face {
+  font-family: "SuperMario256";
+  src: url(fonts/SuperMario256.ttf);
+}
+html {
+  font-family: "SuperMario256";
+}
 body {
   margin: 0;
 }
 
 header {
-  background-color: rgb(29, 118, 29);
+  /* background-image: url(images/backgroundHeader.png);
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position-y: -200px; */
 }
 
 h1 {
   margin: 0;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 main {
@@ -16,12 +30,16 @@ main {
 }
 
 button {
-    width: 200px;
-    height: 50px;
+  width: 170px;
+  height: 170px;
+  border: none;
 }
 
-.text, #score {margin: 0;}
-
+.text,
+#score,
+#computerScore {
+  margin: 0;
+}
 
 #interface {
   display: flex;
@@ -29,13 +47,14 @@ button {
   align-items: center;
 }
 
-.playerScore, .computerScore {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
+.playerScore,
+.computerScore {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
 #leftSide {
@@ -46,9 +65,14 @@ button {
 }
 
 .leftImage {
-  width: 500px;
-  height: 500px;
-  background-color: grey;
+  width: 400px;
+  height: 450px;
+  /* background-color: grey; */
+}
+
+#rpsImageLeft {
+  width: 400px;
+  height: 450px;
 }
 
 #rightSide {
@@ -59,16 +83,71 @@ button {
 }
 
 .rightImage {
-  width: 500px;
-  height: 500px;
-  background-color: grey;
+  width: 400px;
+  height: 450px;
+  /* background-color: grey; */
+}
+
+#rpsImageRight {
+  width: 400px;
+  height: 450px;
 }
 
 #choices {
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column  ;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
+
+.red {
+  color: red;
+  text-shadow: 1px 1px black;
+  font-size: 80px;
+}
+
+.yellow {
+  color: yellow;
+  text-shadow: 1px 1px black;
+  font-size: 80px;
+}
+
+.green {
+  color: green;
+  text-shadow: 1px 1px black;
+  font-size: 80px;
+}
+
+.blue {
+  color: blue;
+  text-shadow: 1px 1px black;
+  font-size: 80px;
+}
+
+#rock {
+  background-image: url(images/rockButton.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+
+#paper {
+  background-image: url(images/paperButton.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+
+#scissors {
+  background-image: url(images/scissorsButton.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+
+#textPlaceHolder {
+  font-size: 18px;
+}
+

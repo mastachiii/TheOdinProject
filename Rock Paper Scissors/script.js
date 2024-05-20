@@ -1,3 +1,8 @@
+setTimeout(function () {
+  alert("The first to win five rounds wins the game!");
+}, 500)
+
+
 /* ROCK PAPER SCISSORS */
 
 /*
@@ -137,13 +142,13 @@ function playRound(humanChoice, computerChoice) {
 
 function rocks() {
   const placeHolder = document.querySelector("#textPlaceHolder");
-  const rockImage = document.createElement("img");
-  rockImage.setAttribute("class", "leftImage")
-  rockImage.setAttribute("src", "images/rock.jpg");
-  leftImage.replaceWith(rockImage);
+  const rockImage = document.getElementById("rpsImageLeft");
+  rockImage.setAttribute("src", "images/rock.png");
   let computerChoice = getComputerChoice();
   switch (computerChoice) {
     case "rock":
+      const rockImage = document.getElementById("rpsImageRight");
+      rockImage.setAttribute("src", "images/rock.png");
       const rockText = document.createElement("p");
       rockText.setAttribute("id", "textPlaceHolder");
       rockText.textContent = "The computer chose rock, it's a tie";
@@ -151,13 +156,18 @@ function rocks() {
       break;
 
     case "paper":
+      const paperImage = document.getElementById("rpsImageRight");
+      paperImage.setAttribute("src", "images/paper.png");
       const paperText = document.createElement("p");
       paperText.setAttribute("id", "textPlaceHolder");
       paperText.textContent = "The computer chose paper, you lose";
       placeHolder.replaceWith(paperText);
-      break;
+      ++computerScore;
+      return computerScore;
 
     case "scissors":
+      const scissorsImage = document.getElementById("rpsImageRight");
+      scissorsImage.setAttribute("src", "images/scissors.png");
       const scissorsText = document.createElement("p");
       scissorsText.setAttribute("id", "textPlaceHolder");
       scissorsText.textContent = "The computer chose scissors, you win!";
@@ -169,13 +179,13 @@ function rocks() {
 
 function papers() {
   const placeHolder = document.querySelector("#textPlaceHolder");
-  const paperImage = document.createElement("img");
-  paperImage.setAttribute("class", "leftImage")
-  paperImage.setAttribute("src", "images/paper.jpg");
-  leftImage.replaceWith(paperImage);
+  const paperImage = document.getElementById("rpsImageLeft");
+  paperImage.setAttribute("src", "images/paper.png");
   let computerChoice = getComputerChoice();
   switch (computerChoice) {
     case "rock":
+      const rockImage = document.getElementById("rpsImageRight");
+      rockImage.setAttribute("src", "images/rock.png");
       const rockText = document.createElement("p");
       rockText.setAttribute("id", "textPlaceHolder");
       rockText.textContent = "The computer chose rock, you win!";
@@ -184,6 +194,8 @@ function papers() {
       return humanScore;
 
     case "paper":
+      const paperImage = document.getElementById("rpsImageRight");
+      paperImage.setAttribute("src", "images/paper.png");
       const paperText = document.createElement("p");
       paperText.setAttribute("id", "textPlaceHolder");
       paperText.textContent = "The computer chose paper, it's a tie";
@@ -191,48 +203,72 @@ function papers() {
       break;
 
     case "scissors":
+      const scissorsImage = document.getElementById("rpsImageRight");
+      scissorsImage.setAttribute("src", "images/scissors.png");
       const scissorsText = document.createElement("p");
       scissorsText.setAttribute("id", "textPlaceHolder");
       scissorsText.textContent = "The computer chose scissors, you lose";
       placeHolder.replaceWith(scissorsText);
+      ++computerScore;
+      return computerScore;
   }
 }
 
 function scissorss() {
   const placeHolder = document.querySelector("#textPlaceHolder");
-  const scissorsImage = document.createElement("img");
-  scissorsImage.setAttribute("class", "leftImage")
-  scissorsImage.setAttribute("src", "images/scissors.jpg");
-  leftImage.replaceWith(scissorsImage);
+  const scissorsImage = document.getElementById("rpsImageLeft");
+  scissorsImage.setAttribute("src", "images/scissors.png");
   let computerChoice = getComputerChoice();
   switch (computerChoice) {
     case "rock":
+      const rockImage = document.getElementById("rpsImageRight");
+      rockImage.setAttribute("src", "images/rock.png");
       const rockText = document.createElement("p");
       rockText.setAttribute("id", "textPlaceHolder");
-      rockText.textContent = "The computer chose rock, you win!";
+      rockText.textContent = "The computer chose rock, you lose!";
       placeHolder.replaceWith(rockText);
-      humanScore++;
-      return humanScore;
+      ++computerScore;
+      return computerScore;
 
     case "paper":
+      const paperImage = document.getElementById("rpsImageRight");
+      paperImage.setAttribute("src", "images/paper.png");
       const paperText = document.createElement("p");
       paperText.setAttribute("id", "textPlaceHolder");
-      paperText.textContent = "The computer chose paper, it's a tie";
+      paperText.textContent = "The computer chose paper, you win!";
       placeHolder.replaceWith(paperText);
-      break;
+      ++humanScore;
+      return humanScore;
 
     case "scissors":
+      const scissorsImage = document.getElementById("rpsImageRight");
+      scissorsImage.setAttribute("src", "images/scissors.png");
       const scissorsText = document.createElement("p");
       scissorsText.setAttribute("id", "textPlaceHolder");
-      scissorsText.textContent = "The computer chose scissors, you lose";
+      scissorsText.textContent = "The computer chose scissors, it's a tie";
       placeHolder.replaceWith(scissorsText);
+      break;
   }
-
 }
 
 function updateScore() {
   const playerScore = document.getElementById("score");
   playerScore.textContent = `(${humanScore})`;
+
+  const computersScore = document.getElementById("computerScore");
+  computersScore.textContent = `(${computerScore})`;
+
+  if (humanScore === 5) {
+    alert("You win!");
+    setTimeout(function () {
+      window.location.reload(true);
+    }, 1000);
+  } else if (computerScore === 5) {
+    alert("You lost!");
+    setTimeout(function () {
+      window.location.reload(true);
+    }, 1000);
+  }
 }
 
 // *********************** REWORK ***********************
