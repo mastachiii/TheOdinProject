@@ -1,25 +1,24 @@
-const board = document.querySelector(".board");
+const board = document.querySelector("#board");
 
 function gridAppend() {
-  for (let i = 0; i < 16; i++) {
-    gridVertical = document.createElement("div");
-    gridVertical.setAttribute("class", "gridVertical");
-    board.appendChild(gridVertical);
+  for (let i = 0; i < 255; i++) {
+    div = document.createElement("div");
+    div.setAttribute("class", "grid");
+    board.appendChild(div);
   }
 }
 
 gridAppend();
 
-function gridAppend2() {
-  for (let i = 0; i < 16; i++) {
-    for (let i = 0; i < 16; i++) {
-      gridHorizontal = document.createElement("div");
-      gridHorizontal.setAttribute("class", "gridHorizontal");
-      document
-        .getElementsByClassName("gridVertical")
-        [i].appendChild(gridHorizontal);
-    }
-  }
-}
+const grids = document.querySelectorAll("div");
 
-gridAppend2();
+
+/* Iterate over every div element whilst adding event listeners to it*/
+for (let i = 0; i < grids.length; i++) {
+    grids[i].addEventListener('mouseover', function (e) {
+      e.target.classList.add('hover');
+    });
+  }
+
+
+
