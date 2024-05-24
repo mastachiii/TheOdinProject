@@ -1,18 +1,70 @@
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #board {
-    width: 1000px;
-    height: 1000px;
-    /* border: 1px solid black; */
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: stretch    ;
+  width: 800px;
+  height: 800px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
 }
 
 .grid {
-    width: 63px;
-    border: 1px solid black
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+  border: 1px solid black;
 }
 
 .hover {
-    background: red;
+  background: red;
+}
+
+.gridTwo {
+  width: 100%;
+  flex: 0 16 auto;
+  border: 1px solid black;
+}
+
+.hover2 {
+  background: black;
+}
+
+.opacity1 {
+    opacity: 10%;
+}
+.opacity2 {
+    opacity: 20%;
+}
+.opacity3 {
+    opacity: 30%;
+}
+.opacity4 {
+    opacity: 40%;
+}
+.opacity5 {
+    opacity: 50%
+}
+.opacity6 {
+    opacity: 60%;
+}
+.opacity7 {
+    opacity: 70%;
+}
+.opacity8 {
+    opacity: 80%;
+}
+.opacity9 {
+    opacity: 90%;
+}
+.opacity10 {
+    opacity: 100%;
 }
